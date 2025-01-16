@@ -1,16 +1,17 @@
 const express = require('express'); 
-//const cookieparser = require('cookieparser');
+//const cookieParser = require('cookieparser');
 
 //const User = require('./schema/userSchema.js');
 const ServerConfig = require('./config/serverConfig');
 const connectDB = require('./config/dbConfig');
 const userRouter = require('./routes/userRoute.js');
 const authRouter = require('./routes/authRoute.js');
+const { isloggedIn } = require('./validation/authValidator.js');
 //const cartRouter = require('./routes/cartRoute.js');
 
 const app = express();
 
-//app.use(cookieparser());
+//app.use(cookieParser);
 app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded({extended: true}));

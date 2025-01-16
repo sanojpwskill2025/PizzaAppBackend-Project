@@ -6,7 +6,7 @@ const {JWT_SECRET, JWT_EXPIRY } = require('../config/serverConfig');
 
 async function loginUser(authDetails){
     const email = authDetails.email;
-    const plainPassword = authDetails.Password;
+    const plainPassword = authDetails.password;
 
     // 1. Check if there is a registered user with the given email
 
@@ -32,7 +32,7 @@ async function loginUser(authDetails){
     // 3. If the password is validated, create a token and return it
 
     const token = jwt.sign({ email: user.email, id: user._id }, JWT_SECRET, { 
-        expireIn: JWT_EXPIRY 
+        expiresIn: JWT_EXPIRY 
     });
 
     return token;
