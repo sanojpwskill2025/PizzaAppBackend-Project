@@ -1,8 +1,8 @@
-const { registerUser} = require('../services/userServices');
+const { registerUser } = require('../services/userServices');
 
 async function createUser(req, res){
 
-    try{                                                
+    try {                                                
         const response = await registerUser(req.body);
         return res.json({
             message: 'Successfully registered the user',

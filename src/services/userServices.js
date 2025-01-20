@@ -7,7 +7,7 @@ const { findUser, createUser} = require('../repositories/userRepository')
         //1. we need to check if the user with this email and mobile number already exists or not
         const user = await findUser({
             email:userDetails.email,
-            mobileNumber:userDetails.mobileNumber
+            mobileNumber: userDetails.mobileNumber
         });
 
         if(user){

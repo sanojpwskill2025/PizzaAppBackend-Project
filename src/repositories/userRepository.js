@@ -4,7 +4,7 @@ const User = require('../schema/userSchema');
         try{
             const response = await User.findOne({ ...parameters});
             return response;
-        }catch(error){
+        } catch(error) {
              console.log(error);
         }
        

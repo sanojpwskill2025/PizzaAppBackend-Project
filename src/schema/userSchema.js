@@ -37,11 +37,16 @@ const userSchema = new mongoose.Schema({
      password: {
          type: String,
          trim: true,
-         maxlength: [10, "Phone number should be of length 10"],
-         minlength: [10, "Phone number should be of length 10"],
-         unique: [true, "Fone number is already in use"],
-         required: [true, "phone number should be provided"]
+         maxlength: [10, "password should be of length 10"],
+         minlength: [6, "password should be of length 10"],
+         unique: [true, "password is already in use"],
+         required: [true, "password should be provided"]
     },
+    role:{
+        type: String,
+        enum: ["USER", "ADMIN"],
+        default: "USER"
+    }
 },{
     timestamps: true //For creating date and update date by mongoose
 });
