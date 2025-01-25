@@ -1,5 +1,5 @@
 const express = require('express');
-const {  getCartByUser, modifyProductTocart, clearCartbyId } = require('../controllers/cartController.js');
+const {  getCartByUser, modifyProductTocart, clearCartbyId,  } = require('../controllers/cartController.js');
 const { isLoggedIn } = require('../validation/authValidator.js');
 
 const cartRouter = express.Router();

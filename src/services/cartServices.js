@@ -7,10 +7,22 @@ const NotFoundError = require("../utils/notFoundError");
 async function getCart(userId) {
     const cart = await getCartByUserId(userId);
     if(!cart) {
-        throw new NotFoundError("Cart");
+    throw new NotFoundError("Cart");
     }
     return cart;
 }
+
+// async function addToCart(userId, productId){
+//     const cart = await getCart(userId);
+//     const product = await getProductById(productId);
+//     if(!product) {
+//         throw new NotFoundError("product");
+//     }
+//     if(!product.inStoke && product.quantity <= 0) {
+//         throw new BadRequestError(["product not available in stock"]);
+//     }
+
+// }
 
 async function modifyCart(userId, productId, shouldAdd = true) {
     const quantityValue = (shouldAdd == true) ? 1 : -1;
@@ -19,7 +31,7 @@ async function modifyCart(userId, productId, shouldAdd = true) {
     if(!product) {
         throw new NotFoundError("Product");
     }
-    if(!product.inStock && product.quantity <= 0) {
+    if(!product.inStoke && product.quantity <= 0) {
         throw new BadRequestError(["Product not available in stock"]);
     }
 

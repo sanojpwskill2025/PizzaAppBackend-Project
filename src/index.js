@@ -1,5 +1,5 @@
 const express = require('express');
-const cookieParser = require('cookieparser');
+const cookieParser = require('cookie-parser');
 
 const connectDB = require('./config/dbConfig');
 const userRouter = require('./routes/userRoute');
@@ -7,7 +7,7 @@ const cartRouter = require('./routes/cartRoute');
 const authRouter = require('./routes/authRoute');
 const productRouter = require('./routes/productRoute');
 const serverConfig = require('./config/serverConfig');
-const User = require('./schema/userSchema');
+//const User = require('./schema/userSchema');
 
 const app = express();
 
@@ -34,4 +34,10 @@ app.listen(serverConfig.PORT, async () => {
     console.log(`Server started at port ${serverConfig.PORT}...!!`);
 
     
+});
+
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: 'Something went wrong!' });
 });
